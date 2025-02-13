@@ -39,6 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,7 +60,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     "${currentDate.day}/${currentDate.month}/${currentDate.year}",
                     style: TextStyle(
                         fontSize: 18,
-                        color: Colors.orange), // Mostrar en color taronja
+                        color: currentDate.year == DateTime.now().year &&
+                            currentDate.month == DateTime.now().month &&
+                            currentDate.day == DateTime.now().day
+                            ? Colors.orange
+                            : Colors.black
+                    ), // Mostrar en color taronja
                   ),
                   IconButton(
                     icon: Icon(Icons.arrow_forward),
